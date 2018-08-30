@@ -3,7 +3,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageobjects.RegisterPage;
 
-public class LoginWithoutMobileTest extends BaseTest {
+public class RegisterWithoutMobileTest extends BaseTest {
     private RegisterPage registerPage;
 
     @BeforeMethod
@@ -12,7 +12,7 @@ public class LoginWithoutMobileTest extends BaseTest {
     }
 
     @Test
-    public void loginWithoutMobile() {
+    public void registerWithoutMobile() {
         registerPage.submitMobile();
         registerPage.isMobileErrorDisplayed();
 

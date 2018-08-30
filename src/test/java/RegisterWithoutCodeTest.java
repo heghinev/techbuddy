@@ -3,8 +3,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageobjects.RegisterPage;
 
-public class LoginTest extends BaseTest {
+public class RegisterWithoutCodeTest extends BaseTest {
     private RegisterPage registerPage;
+
 
     @BeforeMethod
     public void setUp() {
@@ -12,13 +13,12 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void login() {
-        registerPage.validMobile(TestUtils.DEFAULT_LOGIN);
+    public void registerWithoutCode() {
+        registerPage.validMobile(TestUtils.randomMobile());
         registerPage.submitMobile();
         registerPage.isCodeSubmitDisplayed();
-        registerPage.validCodeText(TestUtils.DEFAULT_PASSWORD);
         registerPage.submitCode();
 
-        Assert.assertTrue(registerPage.isBuddyListDisplayed(), "Buddy List is not displayed!");
+        Assert.assertTrue(registerPage.isCodeErrorDisplayed(), "Code error pop up is not displayed!");
     }
 }

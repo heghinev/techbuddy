@@ -1,8 +1,6 @@
 package pageobjects;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.testng.TestNGUtils;
 import setup.WaitHelper;
 
 public class RegisterPage extends BasePage {
@@ -28,6 +26,27 @@ public class RegisterPage extends BasePage {
     private WebElement addressLocator;
     @FindBy(xpath = "//*[@id=\"UpdateInfoForm\"]/div[4]/input")
     private WebElement addressSubmitLocator;
+
+
+    @FindBy(xpath = "//*[@id=\"customer\"]/div/div/div/div/div/div[2]/div/div/form/div[1]/div[6]/div[1]/div[2]/a[1]")
+    private WebElement rutLocator;
+
+    @FindBy(xpath = "//*[@id=\"customer\"]/div/div/div/div/div/div[2]/div/div/form/div[1]/div[6]/div[3]/div/div/p")
+    private WebElement ssnErrorLocator;
+
+
+    @FindBy(xpath = "//*[@id=\"customer\"]/div/div/div/div/div/div[2]/div/div/form/div[3]/div/label/span[1]/input")
+    private WebElement termsLocator;
+    @FindBy (xpath = "//*[@id=\"customer\"]/div/div/div/div/div/div[2]/div/div/form/div[3]/button/span")
+    private WebElement bokaLocator;
+
+
+
+    @FindBy(xpath = "//*[@id=\"customer\"]/div/div/div/div/div/div[2]/div[1]/div[1]")
+    private WebElement buddyListLocator;
+    @FindBy(xpath = "//*[@id=\"customer\"]/div/div/div/div/div/div[2]/div[1]/div[2]/input")
+    private WebElement newRequestLocator;
+
 
 
     public RegisterPage(){
@@ -114,6 +133,45 @@ public class RegisterPage extends BasePage {
             return false;
         }
     }
+
+    public boolean isBuddyListDisplayed(){
+        try{
+            WaitHelper.getWait().waitForElementToBeVisible(buddyListLocator);
+            return true;
+        }catch (Error e){
+            return false;
+        }
+    }
+
+    public void openRequestPage(){
+        click(newRequestLocator);
+    }
+
+    public void checkTerms(){
+        click(termsLocator);
+    }
+
+    public void selectRUT(){
+        click(rutLocator);
+    }
+
+    public void submitRequest(){
+        click(bokaLocator);
+    }
+
+    public boolean isSsnErrorDisplayed(){
+        try{
+            WaitHelper.getWait().waitForElementToBeVisible(ssnErrorLocator);
+            return true;
+        }catch (Error e){
+            return false;
+        }
+    }
+
+    public String getSsnErrorText(){
+        return ssnErrorLocator.getText();
+    }
+
 
 
 

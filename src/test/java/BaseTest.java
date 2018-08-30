@@ -5,7 +5,7 @@ import setup.listeners.SuiteListener;
 import static setup.DriverSetup.quitDriver;
 
 @Listeners(SuiteListener.class)
-public class BaseTest {
+public abstract class BaseTest {
     @AfterClass
     public void tearDownBase() {
             quitDriver();

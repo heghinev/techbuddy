@@ -18,6 +18,7 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
     }
 
     public void visit(String url) {
+        driver.manage().window().maximize();
         log.info("Visiting " + url);
         driver.get(url);
         PageFactory.initElements(driver, this);

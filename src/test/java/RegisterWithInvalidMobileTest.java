@@ -3,21 +3,21 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageobjects.RegisterPage;
 
-public class LoginWithValidMobileTest extends BaseTest {
+public class RegisterWithInvalidMobileTest extends BaseTest {
     private RegisterPage registerPage;
-    private TestUtils testUtils;
+
 
     @BeforeMethod
     public void setUp() {
         registerPage = new RegisterPage();
-        testUtils = new TestUtils();
     }
 
     @Test
-    public void loginWithValidMobile() {
-        registerPage.validMobile(testUtils.randomMobile(7));
+    public void registerWithInvalidMobile() {
+        registerPage.invalidMobileText(TestUtils.randomText());
         registerPage.submitMobile();
+        registerPage.isMobileErrorDisplayed();
 
-        Assert.assertTrue(registerPage.isCodeSubmitDisplayed(), "Code Submit is not displayed!");
+        Assert.assertEquals(registerPage.getMobileErrorText(), "Telefonnumret du angivit är inte korrekt");
     }
 }
