@@ -14,6 +14,7 @@ public class RegisterWithInvalidCodeTest extends BaseTest {
 
     @Test
     public void registerWithInvalidCode() {
+        //Mobile and Code forms
         registerPage.validMobile(TestUtils.randomMobile());
         registerPage.submitMobile();
         registerPage.isCodeSubmitDisplayed();

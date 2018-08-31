@@ -27,14 +27,17 @@ public class RegisterOnlyWithUniqueEmailTest extends BaseTest {
     }
 
 
-
+    //register a new user, than try to register another with the same Email
     private void doLogin(String email) {
+        //Mobile and Code form
         registerPage.validMobile(TestUtils.randomMobile());
         registerPage.submitMobile();
         registerPage.isCodeSubmitDisplayed();
         registerPage.validCodeText(TestUtils.DEFAULT_PASSWORD);
         registerPage.submitCode();
 
+
+        //Customer info form
         registerPage.isEmailDisplayed();
         registerPage.typeEmail(email);
         registerPage.typeAddress(TestUtils.DEFAULT_ADDRESS);

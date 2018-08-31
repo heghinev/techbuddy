@@ -14,6 +14,7 @@ public class RegisterWithInvalidMobileTest extends BaseTest {
 
     @Test
     public void registerWithInvalidMobile() {
+        //Mobile form
         registerPage.invalidMobileText(TestUtils.randomText());
         registerPage.submitMobile();
         registerPage.isMobileErrorDisplayed();

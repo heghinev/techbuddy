@@ -14,11 +14,14 @@ public class RegisterWithoutEmailAddressTest extends BaseTest {
 
     @Test
     public void registerWithoutEmailAddress() {
+        //Mobile and Code forms
         registerPage.validMobile(TestUtils.randomMobile());
         registerPage.submitMobile();
         registerPage.isCodeSubmitDisplayed();
         registerPage.validCodeText(TestUtils.DEFAULT_PASSWORD);
         registerPage.submitCode();
+
+        //Customer info form
         registerPage.isEmailDisplayed();
         registerPage.scrollToAddressSubmit();
         registerPage.isAddressSubmitDisplayed();

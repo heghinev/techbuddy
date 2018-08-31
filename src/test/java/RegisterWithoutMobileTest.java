@@ -13,6 +13,7 @@ public class RegisterWithoutMobileTest extends BaseTest {
 
     @Test
     public void registerWithoutMobile() {
+        //Mobile form
         registerPage.submitMobile();
         registerPage.isMobileErrorDisplayed();
 

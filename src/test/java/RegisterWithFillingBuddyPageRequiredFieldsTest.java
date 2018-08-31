@@ -17,12 +17,14 @@ public class RegisterWithFillingBuddyPageRequiredFieldsTest extends BaseTest {
         String email = TestUtils.randomEmail();
         String text = TestUtils.randomText();
 
+        //Mobile and Code forms
         registerPage.validMobile(TestUtils.randomMobile());
         registerPage.submitMobile();
         registerPage.isCodeSubmitDisplayed();
         registerPage.validCodeText(TestUtils.DEFAULT_PASSWORD);
         registerPage.submitCode();
 
+        //Customer info form
         registerPage.isEmailDisplayed();
         registerPage.typeEmail(email);
         registerPage.typeAddress(TestUtils.DEFAULT_ADDRESS);
@@ -36,6 +38,7 @@ public class RegisterWithFillingBuddyPageRequiredFieldsTest extends BaseTest {
         registerPage.isAddressSubmitDisplayed();
         registerPage.submitAddress();
 
+        //Buddy Request form
         registerPage.isCategoryDisplayed();
         registerPage.clickCategory();
         registerPage.typeWhatFor(text);

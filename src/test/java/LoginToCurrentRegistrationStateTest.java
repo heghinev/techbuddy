@@ -19,7 +19,7 @@ public class LoginToCurrentRegistrationStateTest extends BaseTest {
         String email = TestUtils.randomEmail();
         doBasicLogin(login);
 
-
+        //Customer info form
         registerPage.isEmailDisplayed();
         registerPage.typeEmail(email);
         registerPage.typeAddress(TestUtils.DEFAULT_ADDRESS);
@@ -36,6 +36,7 @@ public class LoginToCurrentRegistrationStateTest extends BaseTest {
 
         Assert.assertTrue(registerPage.isCategoryDisplayed(), "Category field is not displayed!");
 
+        //verify that after page reload and login the previous state page will be opened
         registerPage.visit(BasePage.BASE_URL);
         doBasicLogin(login);
 

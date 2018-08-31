@@ -14,15 +14,18 @@ public class SsnIsRequiredForRutTest extends BaseTest {
 
     @Test
     public void ssnIsRequieredForRut() {
+        //Mobile and Code forms
         registerPage.validMobile(TestUtils.DEFAULT_MOBILE);
         registerPage.submitMobile();
         registerPage.isCodeSubmitDisplayed();
         registerPage.validCodeText(TestUtils.DEFAULT_PASSWORD);
         registerPage.submitCode();
 
+        //Buddy Request list
         registerPage.isBuddyListDisplayed();
         registerPage.openRequestPage();
 
+        //Mobile and Code form
         registerPage.isCategoryDisplayed();
         registerPage.selectRUT();
         registerPage.isTermsDisplayed();

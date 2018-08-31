@@ -17,12 +17,14 @@ public class RegisterWithoutFillingBuddyPageRequiredFieldsTest extends BaseTest 
     public void registerWithoutFillingBuddyRequiredFields() {
         String email = TestUtils.randomEmail();
 
+        //Mobile and Code forms
         registerPage.validMobile(TestUtils.randomMobile());
         registerPage.submitMobile();
         registerPage.isCodeSubmitDisplayed();
         registerPage.validCodeText(TestUtils.DEFAULT_PASSWORD);
         registerPage.submitCode();
 
+        //Customer info form
         registerPage.isEmailDisplayed();
         registerPage.typeEmail(email);
         registerPage.typeAddress(TestUtils.DEFAULT_ADDRESS);
@@ -40,6 +42,7 @@ public class RegisterWithoutFillingBuddyPageRequiredFieldsTest extends BaseTest 
         registerPage.checkTerms();
         registerPage.submitRequest();
 
+        //Buddy Request form
         registerPage.isCategoryErrorDisplayed();
         registerPage.isWhatForErrorDisplayed();
         registerPage.isPriceErrorDisplayed();

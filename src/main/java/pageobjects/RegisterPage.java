@@ -76,7 +76,6 @@ public class RegisterPage extends BasePage {
     private WebElement registerSuccessLocator;
 
 
-
     //Buddy page Locators
     @FindBy(xpath = "//*[@id=\"customer\"]/div/div/div/div/div/div[2]/div[1]/div[1]")
     private WebElement buddyListLocator;
@@ -97,6 +96,7 @@ public class RegisterPage extends BasePage {
         click(mobileSubmitLocator);
     }
 
+    //methods for Mobile and Code forms
     public boolean isMobileErrorDisplayed(){
         try{
             WaitHelper.getWait().waitForElementToBeVisible(mobileErrorLocator);
@@ -179,6 +179,7 @@ public class RegisterPage extends BasePage {
         }
     }
 
+    //methods for Customer info form
     public boolean isEmailDisplayed(){
         try{
             WaitHelper.getWait().waitForElementToBeVisible(buddyListLocator);
@@ -272,6 +273,7 @@ public class RegisterPage extends BasePage {
         return emailErrorPopUpLocator.getText();
     }
 
+    //methods for Buddy Request form
     public boolean isCategoryDisplayed(){
         try{
             WaitHelper.getWait().waitForElementToBeVisible(categoryLocator);

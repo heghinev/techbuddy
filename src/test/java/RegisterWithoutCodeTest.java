@@ -14,6 +14,7 @@ public class RegisterWithoutCodeTest extends BaseTest {
 
     @Test
     public void registerWithoutCode() {
+        //Mobile and Code forms
         registerPage.validMobile(TestUtils.randomMobile());
         registerPage.submitMobile();
         registerPage.isCodeSubmitDisplayed();

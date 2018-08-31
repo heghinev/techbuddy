@@ -13,6 +13,7 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void login() {
+        //basic login with already existing user
         registerPage.validMobile(TestUtils.DEFAULT_MOBILE);
         registerPage.submitMobile();
         registerPage.isCodeSubmitDisplayed();
