@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 import pageobjects.BasePage;
 import pageobjects.RegisterPage;
 
-public class LoginToCurrentRegistrationStateTest extends BaseTest {
+public class RegisterOnlyWithUniqueEmailTest extends BaseTest {
     private RegisterPage registerPage;
 
 
@@ -14,11 +14,26 @@ public class LoginToCurrentRegistrationStateTest extends BaseTest {
     }
 
     @Test
-    public void loginWithValidMobileCode() {
-        String login = TestUtils.randomMobile();
+    public void registerWithOnlyUniqueEmailAddress() {
         String email = TestUtils.randomEmail();
-        doBasicLogin(login);
+        doLogin(email);
 
+        registerPage.visit(BasePage.BASE_URL);
+        doLogin(email);
+
+        registerPage.isEmailErrorPopUpDisplayed();
+
+        Assert.assertEquals(registerPage.getEmailErrorPopUpText(), "Kunden existerar redan");
+    }
+
+
+
+    private void doLogin(String email) {
+        registerPage.validMobile(TestUtils.randomMobile());
+        registerPage.submitMobile();
+        registerPage.isCodeSubmitDisplayed();
+        registerPage.validCodeText(TestUtils.DEFAULT_PASSWORD);
+        registerPage.submitCode();
 
         registerPage.isEmailDisplayed();
         registerPage.typeEmail(email);
@@ -33,20 +48,5 @@ public class LoginToCurrentRegistrationStateTest extends BaseTest {
 
         registerPage.isAddressSubmitDisplayed();
         registerPage.submitAddress();
-
-        Assert.assertTrue(registerPage.isCategoryDisplayed(), "Category field is not displayed!");
-
-        registerPage.visit(BasePage.BASE_URL);
-        doBasicLogin(login);
-
-        Assert.assertTrue(registerPage.isCategoryDisplayed(), "Category field is not displayed!");
-    }
-
-    private void doBasicLogin(String login) {
-        registerPage.validMobile(login);
-        registerPage.submitMobile();
-        registerPage.isCodeSubmitDisplayed();
-        registerPage.validCodeText(TestUtils.DEFAULT_PASSWORD);
-        registerPage.submitCode();
     }
 }

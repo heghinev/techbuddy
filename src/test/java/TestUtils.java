@@ -1,5 +1,4 @@
 import net.bytebuddy.utility.RandomString;
-import java.security.SecureRandom;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -14,11 +13,10 @@ public class TestUtils {
     }
 
     public static final String DEFAULT_PASSWORD = "100100";
-    public static final String DEFAULT_LOGIN = "46701231231";
+    public static final String DEFAULT_MOBILE = "46701231231";
+    public static final String DEFAULT_ADDRESS = "Stjärntorget";
+    public static final String DEFAULT_SSN = "19890703-1234";
 
-   /* public static void fillUserData(RegisterPage registerPage, String email){
-        registerPage.registerWith("TestName", "TestSurname", email, DEFAULT_PASSWORD);
-    }*/
 
     public static String randomEmail(){
         return UUID.randomUUID().toString() + "@test.com";

@@ -86,4 +86,6 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
         driver.getCurrentUrl().contains(getUrl());
     }
 
+
+
 }

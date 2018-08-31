@@ -13,7 +13,7 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void login() {
-        registerPage.validMobile(TestUtils.DEFAULT_LOGIN);
+        registerPage.validMobile(TestUtils.DEFAULT_MOBILE);
         registerPage.submitMobile();
         registerPage.isCodeSubmitDisplayed();
         registerPage.validCodeText(TestUtils.DEFAULT_PASSWORD);
